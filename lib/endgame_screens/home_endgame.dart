@@ -24,8 +24,8 @@ class ListInfinitySaga extends State<InfinitySaga>{
 
   Future<List<InfinityComic>> _getComics() async{
     var now = new DateTime.now();
-    var md5D = generateMd5("${now}LLAVEPRIV&LLAVEPUB");
-    var url = "https://gateway.marvel.com/v1/public/series?title=infinity gauntlet&ts=${now}&apikey=LLAVEPRIV&hash=${md5D}";
+    var md5D = generateMd5("${now}LLAVEPRIVADA+LLAVEPUBLICA");
+    var url = "https://gateway.marvel.com/v1/public/series?title=infinity gauntlet&ts=${now}&apikey=LLAVEPRIVADA&hash=${md5D}";
     print(url);
     var data = await http.get(url);
     var jsonData = json.decode(data.body);
@@ -56,7 +56,7 @@ class ListInfinitySaga extends State<InfinitySaga>{
             if(snapshot.data == null){
               return Container(
                   child: Center(
-                  child: Text("loading..."),
+                  child: Text("Loading."),
                   ),
               );
             }else{
